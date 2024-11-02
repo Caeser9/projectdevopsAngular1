@@ -2,7 +2,7 @@
 FROM node:18 AS build
 WORKDIR /app
 # Copy package files first
-COPY projectdevopsAngular/package*.json .  # Adjust path if necessary
+COPY projectdevopsAngular/package*.json .
 RUN npm install
 # Now copy the rest of the app files
 COPY projectdevopsAngular/ .
