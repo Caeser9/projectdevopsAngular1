@@ -1,11 +1,13 @@
 # Stage 1: Build the Angular app
 FROM node:18 AS build
 WORKDIR /app
+
 # Copy package files first
-COPY projectdevopsAngular/package*.json .
+COPY package*.json ./
 RUN npm install
+
 # Now copy the rest of the app files
-COPY projectdevopsAngular/ .
+COPY . .  
 RUN npm run build --prod
 
 # Stage 2: Serve with Nginx
