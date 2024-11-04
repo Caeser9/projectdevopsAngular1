@@ -29,7 +29,9 @@ services:
   angular-app:
     image: caeser9/angular-app:1.0.0
     ports:
-      - "4201:80"
+      - "80:80"
+    networks:
+      - tpfoyer_network
     depends_on:
       - spring-boot-app
 
