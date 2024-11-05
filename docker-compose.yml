@@ -25,6 +25,8 @@ services:
       - "8089:8089"
     depends_on:
       - mysql
+    restart: 
+      always
 
   angular-app:
     image: caeser9/angular-app:1.0.0
