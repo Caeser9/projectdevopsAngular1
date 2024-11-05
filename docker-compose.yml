@@ -6,10 +6,10 @@ services:
     environment:
       MYSQL_DATABASE: "db"
       MYSQL_USER: "kaycer"
-      MYSQL_PASSWORD: ""
+      MYSQL_PASSWORD: "root"
       MYSQL_ROOT_PASSWORD: "root"
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
 
@@ -18,7 +18,7 @@ services:
     environment:
       SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/db?createDatabaseIfNotExist=true"
       SPRING_DATASOURCE_USERNAME: "kaycer"
-      SPRING_DATASOURCE_PASSWORD: ""
+      SPRING_DATASOURCE_PASSWORD: "root"
       SERVER_PORT: 8089
       SERVER_SERVLET_CONTEXT_PATH: "/tpfoyer"
     ports:
@@ -29,23 +29,10 @@ services:
   angular-app:
     image: caeser9/angular-app:1.0.0
     ports:
-      - "80:80"
+      - "81:81"
     depends_on:
       - spring-boot-app
 
-  prometheus:
-    image: prom/prometheus:latest
-    volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
-    ports:
-      - "9091:9090"
-
-  grafana:
-    image: grafana/grafana:latest
-    ports:
-      - "3001:3000"
-    depends_on:
-      - prometheus
-
+  
 volumes:
   mysql_data:
