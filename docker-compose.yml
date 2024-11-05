@@ -6,7 +6,7 @@ services:
     environment:
       MYSQL_DATABASE: "db"
       MYSQL_USER: "kaycer"
-      MYSQL_PASSWORD: "root"
+      MYSQL_PASSWORD: ""
       MYSQL_ROOT_PASSWORD: "root"
     ports:
       - "3306:3306"
@@ -18,7 +18,7 @@ services:
     environment:
       SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/db?createDatabaseIfNotExist=true"
       SPRING_DATASOURCE_USERNAME: "kaycer"
-      SPRING_DATASOURCE_PASSWORD: "root"
+      SPRING_DATASOURCE_PASSWORD: ""
       SERVER_PORT: 8089
       SERVER_SERVLET_CONTEXT_PATH: "/tpfoyer"
     ports:
